@@ -1,0 +1,11 @@
+{
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.3.5",
+    "websockets": "16.0",
+    "matplotlib": "3.10.8"
+  },
+  "platform": "Linux",
+  "clock": "UTC publication records",
+  "provenance": "local recorded study"
+}

@@ -1,0 +1,13 @@
+{
+  "source_journal": "capture-20261008.sqlite",
+  "verified_rows": 19627,
+  "canonical_events_sha256": "b63631c2d5d6012959743998855b3d7f83be7f26106b5fc052243a33564d5b4d",
+  "provenance": "real",
+  "observations": 9514,
+  "trust_fences": 2,
+  "first_available_ns": 1791481019961093381,
+  "last_available_ns": 1791481613990751656,
+  "source": "Coinbase Advanced Trade public level2",
+  "csv_sha256": "2a441f03216e52b230cd5bf764dea2561792fcddbb81543293ab1de5962c896e",
+  "availability_clock": "local UTC publication time, not exchange event time"
+}

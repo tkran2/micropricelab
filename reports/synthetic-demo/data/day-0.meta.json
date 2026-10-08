@@ -1,0 +1,7 @@
+{
+  "source": "planted-signal fixture",
+  "seed": 2027,
+  "not_market_data": true,
+  "csv_sha256": "fc63b8a027adb8875f03a7e1e6e05521fcbc8e588c99a5e1a2081c1f488bc222",
+  "availability_clock": "local UTC publication time, not exchange event time"
+}

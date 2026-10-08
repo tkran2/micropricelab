@@ -1,0 +1,13 @@
+{
+  "source_journal": "live-baseline.sqlite",
+  "verified_rows": 1041,
+  "canonical_events_sha256": "8fc0913601e17ea34c9f0ad5e12d136b688ea461d912e707a1a3be37ffa10e69",
+  "provenance": "real",
+  "observations": 505,
+  "trust_fences": 2,
+  "first_available_ns": 1791396613659868484,
+  "last_available_ns": 1791396639329798341,
+  "source": "Coinbase Advanced Trade public level2",
+  "csv_sha256": "7bcf294dfefa8769575107ba1e10a5a6e3429682cd936ec7eec47868f7bf6b9f",
+  "availability_clock": "local UTC publication time, not exchange event time"
+}

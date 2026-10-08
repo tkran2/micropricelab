@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-08",
+  "unit_tests_passed": 12,
+  "real_study": {
+    "train_dates": [
+      "2026-10-07"
+    ],
+    "evaluation_dates": [
+      "2026-10-08"
+    ],
+    "eval_forecasts_100ms": 4188,
+    "eval_forecasts_1s": 441
+  },
+  "capture_runner_live_smoke": {
+    "sessions": 1,
+    "observations": [
+      450
+    ],
+    "exit_codes": [
+      0
+    ],
+    "seconds": [
+      30.004925
+    ],
+    "source": "public Coinbase BTC-USD"
+  },
+  "research_limit": "one short training capture and one ten-minute evaluation capture; no established edge"
+}

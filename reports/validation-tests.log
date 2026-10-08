@@ -1,0 +1,18 @@
+python3 -m unittest discover -s tests -v
+test_bootstrap_is_deterministic_and_paired (test_research.ResearchTests.test_bootstrap_is_deterministic_and_paired) ... ok
+test_change_model_not_price_level_and_constant_features_safe (test_research.ResearchTests.test_change_model_not_price_level_and_constant_features_safe) ... ok
+test_expanding_training_and_reproducibility (test_research.ResearchTests.test_expanding_training_and_reproducibility) ... ok
+test_gap_and_stale_exclusions (test_research.ResearchTests.test_gap_and_stale_exclusions) ... ok
+test_microprice_weights_opposite_prices (test_research.ResearchTests.test_microprice_weights_opposite_prices) ... ok
+test_midnight_evaluation_boundary_is_purged (test_research.ResearchTests.test_midnight_evaluation_boundary_is_purged) ... ok
+test_no_iid_confidence_interval_for_single_evaluation_day (test_research.ResearchTests.test_no_iid_confidence_interval_for_single_evaluation_day) ... ok
+test_observation_validation_and_provenance (test_research.ResearchTests.test_observation_validation_and_provenance) ... ok
+test_session_and_reconnect_fences (test_research.ResearchTests.test_session_and_reconnect_fences) ... ok
+test_training_stats_unchanged_when_future_changes (test_research.ResearchTests.test_training_stats_unchanged_when_future_changes) ... ok
+test_unavailable_future_quote_not_used_as_feature_or_label (test_research.ResearchTests.test_unavailable_future_quote_not_used_as_feature_or_label) ... ok
+test_verified_import_uses_publication_clock_and_trust_fence (test_research.ResearchTests.test_verified_import_uses_publication_clock_and_trust_fence) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.105s
+
+OK

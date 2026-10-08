@@ -1,0 +1,2 @@
+# Network collection only. Core, offline demo, replay, and tests use the stdlib.
+websockets==16.0

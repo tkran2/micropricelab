@@ -1,0 +1,95 @@
+{
+  "product": "BTC-USD",
+  "elapsed_seconds": 600.005979,
+  "metrics": {
+    "received": 10110,
+    "processed": 9514,
+    "control_processed": 596,
+    "published": 9514,
+    "snapshots": 1,
+    "reconnects": 0,
+    "injected_drops": 0,
+    "invalidations": {},
+    "queue_peak_messages": 11,
+    "queue_peak_bytes": 4346109,
+    "queue_dwell_us": {
+      "count": 10110,
+      "sample_count": 4096,
+      "mean": 182.94,
+      "p50": 40.461,
+      "p99": 1062.413,
+      "max": 170249.888
+    },
+    "native_roundtrip_us": {
+      "count": 10112,
+      "sample_count": 4096,
+      "mean": 166.065,
+      "p50": 145.991,
+      "p99": 467.617,
+      "max": 18641.098
+    },
+    "journal_commit_us": {
+      "count": 10112,
+      "sample_count": 4096,
+      "mean": 341.889,
+      "p50": 324.51,
+      "p99": 975.373,
+      "max": 30042.833
+    },
+    "receive_to_publish_us": {
+      "count": 9514,
+      "sample_count": 4096,
+      "mean": 888.234,
+      "p50": 745.095,
+      "p99": 2178.128,
+      "max": 169587.737
+    },
+    "recovery_us": {
+      "count": 0,
+      "sample_count": 0,
+      "mean": 0,
+      "p50": 0,
+      "p99": 0,
+      "max": 0.0
+    }
+  },
+  "last_trusted": {
+    "status": "applied",
+    "trusted": true,
+    "generation": 1,
+    "sequence": 10109,
+    "reason": "ok",
+    "bid_levels": 19840,
+    "ask_levels": 19645,
+    "gaps": 0,
+    "duplicates": 0,
+    "snapshots": 1,
+    "digest": "8caec4508d8e490b",
+    "bid": [
+      8073277000000,
+      3424822
+    ],
+    "ask": [
+      8073278000000,
+      636912
+    ]
+  },
+  "final": {
+    "status": "invalidated",
+    "trusted": false,
+    "generation": 1,
+    "sequence": null,
+    "reason": "stopped",
+    "bid_levels": 0,
+    "ask_levels": 0,
+    "gaps": 0,
+    "duplicates": 0,
+    "snapshots": 1,
+    "digest": "9c5431c76bb66f44",
+    "bid": null,
+    "ask": null
+  },
+  "error": null,
+  "journal": "/workspace/scratch/dd6d3fc9cd05/output/Career_Projects/micropricelab/data/real/capture-20261008.sqlite",
+  "source": "Coinbase Advanced Trade public level2"
+}

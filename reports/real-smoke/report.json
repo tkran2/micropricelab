@@ -1,0 +1,272 @@
+{
+  "question": "Does size-weighted BBO microprice improve one-second observed-midpoint forecasts?",
+  "provenance": "real",
+  "product": "BTC-USD",
+  "config": {
+    "horizon_ns": 1000000000,
+    "step_ns": 100000000,
+    "max_age_ns": 250000000,
+    "max_gap_ns": 500000000,
+    "train_days": 1,
+    "ridge_alpha": 10.0,
+    "block_ns": 60000000000,
+    "bootstrap_repeats": 1000,
+    "seed": 8731
+  },
+  "inputs": [
+    {
+      "file": "20261007.csv",
+      "sha256": "7bcf294dfefa8769575107ba1e10a5a6e3429682cd936ec7eec47868f7bf6b9f"
+    },
+    {
+      "file": "20261008.csv",
+      "sha256": "2a441f03216e52b230cd5bf764dea2561792fcddbb81543293ab1de5962c896e"
+    }
+  ],
+  "exclusions": {
+    "gap_fences": 37,
+    "horizon_outside_span": 377,
+    "stale_anchor_label_or_lag": 695,
+    "retained_samples": 4414
+  },
+  "folds": [
+    {
+      "evaluation_day": "2026-10-08",
+      "training_days": [
+        "2026-10-07"
+      ],
+      "train_samples": 226,
+      "test_samples": 4188,
+      "train_last_label_ns": 1791396639300000000,
+      "evaluation_boundary_ns": 1791417600000000000,
+      "condition_thresholds_from_training": {
+        "spread_q75": 0.01,
+        "past_abs_return_q75": 0.0
+      },
+      "feature_support": {
+        "micro_minus_mid": {
+          "train_min": -0.004997863827156834,
+          "train_max": 0.004932275362079963,
+          "test_fraction_outside_training_range": 0.3233046800382044
+        },
+        "imbalance": {
+          "train_min": -0.9995727673611087,
+          "train_max": 0.9864550729643871,
+          "test_fraction_outside_training_range": 0.14947468958930277
+        },
+        "past_1s_return": {
+          "train_min": -2.14,
+          "train_max": 1.61,
+          "test_fraction_outside_training_range": 0.5735434574976123
+        },
+        "spread": {
+          "train_min": 0.01,
+          "train_max": 0.01,
+          "test_fraction_outside_training_range": 0.19364851957975168
+        }
+      },
+      "features": [
+        "micro_minus_mid",
+        "imbalance",
+        "past_1s_return",
+        "spread"
+      ],
+      "training_mean": [
+        -0.0012343545289518543,
+        -0.24687090706936163,
+        -0.0022566371681416,
+        0.009999999999999981
+      ],
+      "training_scale": [
+        0.002356963602907113,
+        0.4713927206997603,
+        0.5225014253062833,
+        1.0
+      ],
+      "standardized_coefficients": [
+        0.12136124128089743,
+        0.12136124392341562,
+        -0.004159740267273914,
+        -3.504201959160455e-32
+      ],
+      "intercept": -0.016504424778761063
+    }
+  ],
+  "by_day": [
+    {
+      "day": "2026-10-08",
+      "model": "persistence",
+      "samples": 4188,
+      "mae": 4.258388252148997,
+      "rmse": 6.669626024456896,
+      "bias": -0.049247851002865245
+    },
+    {
+      "day": "2026-10-08",
+      "model": "microprice",
+      "samples": 4188,
+      "mae": 4.254995869787055,
+      "rmse": 6.670028390623405,
+      "bias": -0.06070397506183374
+    },
+    {
+      "day": "2026-10-08",
+      "model": "ridge",
+      "samples": 4188,
+      "mae": 7.984655517514076,
+      "rmse": 18.492530985291253,
+      "bias": -0.5475396688568704
+    }
+  ],
+  "by_market_condition": [
+    {
+      "day": "2026-10-08",
+      "condition": "normal_spread/high_past_move",
+      "model": "persistence",
+      "samples": 2356,
+      "mae": 4.155224957555179,
+      "rmse": 6.512137585274254,
+      "bias": -0.14398132427843804
+    },
+    {
+      "day": "2026-10-08",
+      "condition": "normal_spread/low_past_move",
+      "model": "persistence",
+      "samples": 1021,
+      "mae": 4.3565719882468175,
+      "rmse": 7.262160418712236,
+      "bias": 0.5414397649363369
+    },
+    {
+      "day": "2026-10-08",
+      "condition": "wide/high_past_move",
+      "model": "persistence",
+      "samples": 810,
+      "mae": 4.439061728395062,
+      "rmse": 6.338059902946116,
+      "bias": -0.5174320987654323
+    },
+    {
+      "day": "2026-10-08",
+      "condition": "wide/low_past_move",
+      "model": "persistence",
+      "samples": 1,
+      "mae": 0.72,
+      "rmse": 0.72,
+      "bias": -0.72
+    },
+    {
+      "day": "2026-10-08",
+      "condition": "normal_spread/high_past_move",
+      "model": "microprice",
+      "samples": 2356,
+      "mae": 4.1552589380862575,
+      "rmse": 6.511018873877225,
+      "bias": -0.14431309863712558
+    },
+    {
+      "day": "2026-10-08",
+      "condition": "normal_spread/low_past_move",
+      "model": "microprice",
+      "samples": 1021,
+      "mae": 4.357175037513563,
+      "rmse": 7.261197086104158,
+      "bias": 0.54081494507112
+    },
+    {
+      "day": "2026-10-08",
+      "condition": "wide/high_past_move",
+      "model": "microprice",
+      "samples": 810,
+      "mae": 4.420691987445612,
+      "rmse": 6.344982895288945,
+      "bias": -0.5749410181269533
+    },
+    {
+      "day": "2026-10-08",
+      "condition": "wide/low_past_move",
+      "model": "microprice",
+      "samples": 1,
+      "mae": 0.6964214046736015,
+      "rmse": 0.6964214046736015,
+      "bias": -0.6964214046736015
+    },
+    {
+      "day": "2026-10-08",
+      "condition": "normal_spread/high_past_move",
+      "model": "ridge",
+      "samples": 2356,
+      "mae": 4.170348360330208,
+      "rmse": 6.411247697754652,
+      "bias": -0.06570851247118761
+    },
+    {
+      "day": "2026-10-08",
+      "condition": "normal_spread/low_past_move",
+      "model": "ridge",
+      "samples": 1021,
+      "mae": 4.4190124120118135,
+      "rmse": 7.1825172322508655,
+      "bias": 0.5876878684036089
+    },
+    {
+      "day": "2026-10-08",
+      "condition": "wide/high_past_move",
+      "model": "ridge",
+      "samples": 810,
+      "mae": 23.582641681738043,
+      "rmse": 39.79379383862314,
+      "bias": -3.3814337369995595
+    },
+    {
+      "day": "2026-10-08",
+      "condition": "wide/low_past_move",
+      "model": "ridge",
+      "samples": 1,
+      "mae": 0.6451355391029745,
+      "rmse": 0.6451355391029745,
+      "bias": 0.6451355391029745
+    }
+  ],
+  "overall": [
+    {
+      "model": "persistence",
+      "samples": 4188,
+      "mae": 4.258388252148997,
+      "rmse": 6.669626024456896,
+      "bias": -0.049247851002865245
+    },
+    {
+      "model": "microprice",
+      "samples": 4188,
+      "mae": 4.254995869787055,
+      "rmse": 6.670028390623405,
+      "bias": -0.06070397506183374
+    },
+    {
+      "model": "ridge",
+      "samples": 4188,
+      "mae": 7.984655517514076,
+      "rmse": 18.492530985291253,
+      "bias": -0.5475396688568704
+    }
+  ],
+  "paired_uncertainty": {
+    "microprice": {
+      "interval": null,
+      "reason": "need at least 2 evaluation days, each with 5 time blocks; current data are exploratory"
+    },
+    "ridge": {
+      "interval": null,
+      "reason": "need at least 2 evaluation days, each with 5 time blocks; current data are exploratory"
+    }
+  },
+  "warnings": [
+    "Observed local published BBO, not an exchange-timestamp ground truth.",
+    "Crypto venue results do not establish an equity or futures edge.",
+    "Overlapping one-second labels are dependent; sample count is not independent evidence.",
+    "Freshness and publication-gap filters can exclude healthy quiet periods; errors are conditional on retained observations and may have activity-selection bias.",
+    "Forecasting error excludes spreads, fees, queues, fills, latency, impact and inventory risk.",
+    "A short or thin training capture is a workflow check, not evidence of stable predictive skill."
+  ]
+}

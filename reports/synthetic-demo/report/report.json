@@ -1,0 +1,506 @@
+{
+  "question": "Does size-weighted BBO microprice improve one-second observed-midpoint forecasts?",
+  "provenance": "synthetic",
+  "product": "SYNTHETIC-USD",
+  "config": {
+    "horizon_ns": 1000000000,
+    "step_ns": 100000000,
+    "max_age_ns": 250000000,
+    "max_gap_ns": 500000000,
+    "train_days": 1,
+    "ridge_alpha": 10.0,
+    "block_ns": 60000000000,
+    "bootstrap_repeats": 1000,
+    "seed": 8731
+  },
+  "inputs": [
+    {
+      "file": "day-0.csv",
+      "sha256": "fc63b8a027adb8875f03a7e1e6e05521fcbc8e588c99a5e1a2081c1f488bc222"
+    },
+    {
+      "file": "day-1.csv",
+      "sha256": "f96fdb9dd8128bb6f458e98d69b6f0e62b3e5c390ba4c26bff28c5cdd2fd45e1"
+    },
+    {
+      "file": "day-2.csv",
+      "sha256": "4c0207735eccbf38bd93f50b9c4ed0c52ea422eea43b3dae3410c0f23994e1fe"
+    },
+    {
+      "file": "day-3.csv",
+      "sha256": "4cbb752244472941a5a37d3a0aed4af9b188ae0d3ac9743d5e70ad8933294198"
+    }
+  ],
+  "exclusions": {
+    "gap_fences": 0,
+    "horizon_outside_span": 40,
+    "stale_anchor_label_or_lag": 0,
+    "retained_samples": 4720
+  },
+  "folds": [
+    {
+      "evaluation_day": "2024-01-02",
+      "training_days": [
+        "2024-01-01"
+      ],
+      "train_samples": 1180,
+      "test_samples": 1180,
+      "train_last_label_ns": 1704067319900000000,
+      "evaluation_boundary_ns": 1704153600000000000,
+      "condition_thresholds_from_training": {
+        "spread_q75": 0.08,
+        "past_abs_return_q75": 0.0108900225
+      },
+      "feature_support": {
+        "micro_minus_mid": {
+          "train_min": -0.0354853372056283,
+          "train_max": 0.035987635339310486,
+          "test_fraction_outside_training_range": 0.001694915254237288
+        },
+        "imbalance": {
+          "train_min": -0.8998389588122542,
+          "train_max": 0.8996908834829866,
+          "test_fraction_outside_training_range": 0.0
+        },
+        "past_1s_return": {
+          "train_min": -0.03181561,
+          "train_max": 0.02298055,
+          "test_fraction_outside_training_range": 0.00423728813559322
+        },
+        "spread": {
+          "train_min": 0.02,
+          "train_max": 0.08,
+          "test_fraction_outside_training_range": 0.0
+        }
+      },
+      "features": [
+        "micro_minus_mid",
+        "imbalance",
+        "past_1s_return",
+        "spread"
+      ],
+      "training_mean": [
+        -0.00034251558186462836,
+        -0.012957868537694631,
+        -0.00028116055084745725,
+        0.035254237288135495
+      ],
+      "training_scale": [
+        0.01107902246363801,
+        0.5142354466278067,
+        0.009496463114180658,
+        0.02612589677016657
+      ],
+      "standardized_coefficients": [
+        -0.000563953512881064,
+        0.0018361043811064338,
+        -0.0004407212600189438,
+        0.0006602638439521881
+      ],
+      "intercept": -0.0003363219915254236
+    },
+    {
+      "evaluation_day": "2024-01-03",
+      "training_days": [
+        "2024-01-01",
+        "2024-01-02"
+      ],
+      "train_samples": 2360,
+      "test_samples": 1180,
+      "train_last_label_ns": 1704153719900000000,
+      "evaluation_boundary_ns": 1704240000000000000,
+      "condition_thresholds_from_training": {
+        "spread_q75": 0.08,
+        "past_abs_return_q75": 0.01063332
+      },
+      "feature_support": {
+        "micro_minus_mid": {
+          "train_min": -0.03596246884349341,
+          "train_max": 0.035987635339310486,
+          "test_fraction_outside_training_range": 0.0
+        },
+        "imbalance": {
+          "train_min": -0.8998389588122542,
+          "train_max": 0.8996908834829866,
+          "test_fraction_outside_training_range": 0.0
+        },
+        "past_1s_return": {
+          "train_min": -0.03181561,
+          "train_max": 0.02647638,
+          "test_fraction_outside_training_range": 0.007627118644067797
+        },
+        "spread": {
+          "train_min": 0.02,
+          "train_max": 0.08,
+          "test_fraction_outside_training_range": 0.0
+        }
+      },
+      "features": [
+        "micro_minus_mid",
+        "imbalance",
+        "past_1s_return",
+        "spread"
+      ],
+      "training_mean": [
+        -2.5423299927411846e-05,
+        0.0005145222985854076,
+        0.0005087121567796617,
+        0.035254237288135315
+      ],
+      "training_scale": [
+        0.011243232449979743,
+        0.5159269419602276,
+        0.009182522909139448,
+        0.026125896770166038
+      ],
+      "standardized_coefficients": [
+        -0.00011026033590707336,
+        0.0015629857048241203,
+        -0.00043029463389663284,
+        0.000520031801222119
+      ],
+      "intercept": 0.000502662622881356
+    },
+    {
+      "evaluation_day": "2024-01-04",
+      "training_days": [
+        "2024-01-01",
+        "2024-01-02",
+        "2024-01-03"
+      ],
+      "train_samples": 3540,
+      "test_samples": 1180,
+      "train_last_label_ns": 1704240119900000000,
+      "evaluation_boundary_ns": 1704326400000000000,
+      "condition_thresholds_from_training": {
+        "spread_q75": 0.08,
+        "past_abs_return_q75": 0.011093075
+      },
+      "feature_support": {
+        "micro_minus_mid": {
+          "train_min": -0.03596246884349341,
+          "train_max": 0.035987635339310486,
+          "test_fraction_outside_training_range": 0.0
+        },
+        "imbalance": {
+          "train_min": -0.8998389588122542,
+          "train_max": 0.8996908834829866,
+          "test_fraction_outside_training_range": 0.0
+        },
+        "past_1s_return": {
+          "train_min": -0.03952233,
+          "train_max": 0.02892253,
+          "test_fraction_outside_training_range": 0.000847457627118644
+        },
+        "spread": {
+          "train_min": 0.02,
+          "train_max": 0.08,
+          "test_fraction_outside_training_range": 0.0
+        }
+      },
+      "features": [
+        "micro_minus_mid",
+        "imbalance",
+        "past_1s_return",
+        "spread"
+      ],
+      "training_mean": [
+        -0.00026549973140304337,
+        -0.00961701475280044,
+        0.0002758958276836163,
+        0.035254237288134274
+      ],
+      "training_scale": [
+        0.011321835588413,
+        0.5147988905684506,
+        0.009684203032906192,
+        0.026125896770166537
+      ],
+      "standardized_coefficients": [
+        2.705000589796869e-05,
+        0.0015849761404503032,
+        -0.00026429119035861645,
+        0.0006972810241172427
+      ],
+      "intercept": 0.0002561576214689266
+    }
+  ],
+  "by_day": [
+    {
+      "day": "2024-01-02",
+      "model": "persistence",
+      "samples": 1180,
+      "mae": 0.007088437983050849,
+      "rmse": 0.008907082557239968,
+      "bias": -0.0013416472372881356
+    },
+    {
+      "day": "2024-01-02",
+      "model": "microprice",
+      "samples": 1180,
+      "mae": 0.009981104791621268,
+      "rmse": 0.013320740186086293,
+      "bias": -0.001049978255278331
+    },
+    {
+      "day": "2024-01-02",
+      "model": "ridge",
+      "samples": 1180,
+      "mae": 0.007034012945900559,
+      "rmse": 0.008827756606074657,
+      "bias": -0.0016873576589659513
+    },
+    {
+      "day": "2024-01-03",
+      "model": "persistence",
+      "samples": 1180,
+      "mae": 0.008497198805084748,
+      "rmse": 0.010614834408368475,
+      "bias": 0.00023685238135593225
+    },
+    {
+      "day": "2024-01-03",
+      "model": "microprice",
+      "samples": 1180,
+      "mae": 0.011030118557167061,
+      "rmse": 0.014465494956986395,
+      "bias": -0.0005088002129983744
+    },
+    {
+      "day": "2024-01-03",
+      "model": "ridge",
+      "samples": 1180,
+      "mae": 0.008348055127455668,
+      "rmse": 0.010459792582349695,
+      "bias": 0.000687228011164242
+    },
+    {
+      "day": "2024-01-04",
+      "model": "persistence",
+      "samples": 1180,
+      "mae": 0.006980615279661017,
+      "rmse": 0.00876354034185473,
+      "bias": -0.0005030685169491525
+    },
+    {
+      "day": "2024-01-04",
+      "model": "microprice",
+      "samples": 1180,
+      "mae": 0.010319329324894325,
+      "rmse": 0.01369990658642196,
+      "bias": -0.001069876084288252
+    },
+    {
+      "day": "2024-01-04",
+      "model": "ridge",
+      "samples": 1180,
+      "mae": 0.006981536324018322,
+      "rmse": 0.00873169104571622,
+      "bias": -0.0002577717552808977
+    }
+  ],
+  "by_market_condition": [
+    {
+      "day": "2024-01-02",
+      "condition": "normal_spread/high_past_move",
+      "model": "persistence",
+      "samples": 265,
+      "mae": 0.006998158528301887,
+      "rmse": 0.008607971659244155,
+      "bias": -0.0025583016981132077
+    },
+    {
+      "day": "2024-01-02",
+      "condition": "normal_spread/low_past_move",
+      "model": "persistence",
+      "samples": 915,
+      "mae": 0.007114584491803278,
+      "rmse": 0.008991852387388434,
+      "bias": -0.000989282830601093
+    },
+    {
+      "day": "2024-01-02",
+      "condition": "normal_spread/high_past_move",
+      "model": "microprice",
+      "samples": 265,
+      "mae": 0.00935408219663368,
+      "rmse": 0.012536944615774212,
+      "bias": -0.001932985285322469
+    },
+    {
+      "day": "2024-01-02",
+      "condition": "normal_spread/low_past_move",
+      "model": "microprice",
+      "samples": 915,
+      "mae": 0.010162701499459203,
+      "rmse": 0.01353927017610449,
+      "bias": -0.0007942439788174604
+    },
+    {
+      "day": "2024-01-02",
+      "condition": "normal_spread/high_past_move",
+      "model": "ridge",
+      "samples": 265,
+      "mae": 0.007006981423342329,
+      "rmse": 0.008632562536978278,
+      "bias": -0.0030445053391861894
+    },
+    {
+      "day": "2024-01-02",
+      "condition": "normal_spread/low_past_move",
+      "model": "ridge",
+      "samples": 915,
+      "mae": 0.007041841747515785,
+      "rmse": 0.008883487307743531,
+      "bias": -0.0012943039592300358
+    },
+    {
+      "day": "2024-01-03",
+      "condition": "normal_spread/high_past_move",
+      "model": "persistence",
+      "samples": 368,
+      "mae": 0.008164456983695653,
+      "rmse": 0.010091454916211115,
+      "bias": 0.001496093831521739
+    },
+    {
+      "day": "2024-01-03",
+      "condition": "normal_spread/low_past_move",
+      "model": "persistence",
+      "samples": 812,
+      "mae": 0.008647998054187192,
+      "rmse": 0.01084371575145252,
+      "bias": -0.0003338383251231526
+    },
+    {
+      "day": "2024-01-03",
+      "condition": "normal_spread/high_past_move",
+      "model": "microprice",
+      "samples": 368,
+      "mae": 0.010849969742667425,
+      "rmse": 0.014155673678719815,
+      "bias": 0.0007047638235090875
+    },
+    {
+      "day": "2024-01-03",
+      "condition": "normal_spread/low_past_move",
+      "model": "microprice",
+      "samples": 812,
+      "mae": 0.01111176235487133,
+      "rmse": 0.014603742288449798,
+      "bias": -0.0010587898256027414
+    },
+    {
+      "day": "2024-01-03",
+      "condition": "normal_spread/high_past_move",
+      "model": "ridge",
+      "samples": 368,
+      "mae": 0.008048392817612948,
+      "rmse": 0.010000307044045528,
+      "bias": 0.0019770469522452368
+    },
+    {
+      "day": "2024-01-03",
+      "condition": "normal_spread/low_past_move",
+      "model": "ridge",
+      "samples": 812,
+      "mae": 0.008483862676743996,
+      "rmse": 0.010661513350578695,
+      "bias": 0.00010267952555118039
+    },
+    {
+      "day": "2024-01-04",
+      "condition": "normal_spread/high_past_move",
+      "model": "persistence",
+      "samples": 242,
+      "mae": 0.00650056826446281,
+      "rmse": 0.008182246294004098,
+      "bias": -0.0018135335537190086
+    },
+    {
+      "day": "2024-01-04",
+      "condition": "normal_spread/low_past_move",
+      "model": "persistence",
+      "samples": 938,
+      "mae": 0.007104465362473348,
+      "rmse": 0.008907357768897383,
+      "bias": -0.00016497412579957355
+    },
+    {
+      "day": "2024-01-04",
+      "condition": "normal_spread/high_past_move",
+      "model": "microprice",
+      "samples": 242,
+      "mae": 0.009739036253589427,
+      "rmse": 0.012869588389107449,
+      "bias": -0.0018494622567203458
+    },
+    {
+      "day": "2024-01-04",
+      "condition": "normal_spread/low_past_move",
+      "model": "microprice",
+      "samples": 938,
+      "mae": 0.01046904246269367,
+      "rmse": 0.013906082096465381,
+      "bias": -0.0008687461762620616
+    },
+    {
+      "day": "2024-01-04",
+      "condition": "normal_spread/high_past_move",
+      "model": "ridge",
+      "samples": 242,
+      "mae": 0.006738560610840081,
+      "rmse": 0.00844095002731608,
+      "bias": -0.0016295075488494213
+    },
+    {
+      "day": "2024-01-04",
+      "condition": "normal_spread/low_past_move",
+      "model": "ridge",
+      "samples": 938,
+      "mae": 0.007044223021874541,
+      "rmse": 0.008805143232475124,
+      "bias": 9.61302298401927e-05
+    }
+  ],
+  "overall": [
+    {
+      "model": "persistence",
+      "samples": 3540,
+      "mae": 0.007522084022598871,
+      "rmse": 0.009465911974410903,
+      "bias": -0.0005359544576271187
+    },
+    {
+      "model": "microprice",
+      "samples": 3540,
+      "mae": 0.010443517557894216,
+      "rmse": 0.013836908420748003,
+      "bias": -0.0008762181841883191
+    },
+    {
+      "model": "ridge",
+      "samples": 3540,
+      "mae": 0.00745453479912485,
+      "rmse": 0.009373348318143189,
+      "bias": -0.00041930046769420243
+    }
+  ],
+  "paired_uncertainty": {
+    "microprice": {
+      "interval": null,
+      "reason": "need at least 2 evaluation days, each with 5 time blocks; current data are exploratory"
+    },
+    "ridge": {
+      "interval": null,
+      "reason": "need at least 2 evaluation days, each with 5 time blocks; current data are exploratory"
+    }
+  },
+  "warnings": [
+    "Observed local published BBO, not an exchange-timestamp ground truth.",
+    "Crypto venue results do not establish an equity or futures edge.",
+    "Overlapping one-second labels are dependent; sample count is not independent evidence.",
+    "Forecasting error excludes spreads, fees, queues, fills, latency, impact and inventory risk.",
+    "A short or thin training capture is a workflow check, not evidence of stable predictive skill."
+  ]
+}
